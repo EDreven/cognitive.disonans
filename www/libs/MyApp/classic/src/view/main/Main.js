@@ -82,5 +82,5 @@ Ext.define('MyApp.view.main.Main', {
         items: [{
             xtype: 'UserGrid'
         }]
-//    }]
+    }]
 });
