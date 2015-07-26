@@ -9,6 +9,21 @@
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Дамп структуры базы данных grid
+CREATE DATABASE IF NOT EXISTS `grid` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `grid`;
+
+
+-- Дамп структуры для таблица grid.citys
+CREATE TABLE IF NOT EXISTS `citys` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city` varchar(50) NOT NULL DEFAULT '0',
+  `region` varchar(50) NOT NULL DEFAULT '0',
+  `county` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1127 DEFAULT CHARSET=utf8;
+
 -- Дамп данных таблицы grid.citys: 1 126 rows
 /*!40000 ALTER TABLE `citys` DISABLE KEYS */;
 INSERT IGNORE INTO `citys` (`id`, `city`, `region`, `county`) VALUES
@@ -1140,6 +1155,15 @@ INSERT IGNORE INTO `citys` (`id`, `city`, `region`, `county`) VALUES
 	(1126, 'Яхрома', 'Московская область', 'Центральный\r');
 /*!40000 ALTER TABLE `citys` ENABLE KEYS */;
 
+
+-- Дамп структуры для таблица grid.education
+CREATE TABLE IF NOT EXISTS `education` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(6) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Список возможных квалификаций';
+
 -- Дамп данных таблицы grid.education: 29 rows
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
 INSERT IGNORE INTO `education` (`id`, `code`, `description`) VALUES
@@ -1174,7 +1198,16 @@ INSERT IGNORE INTO `education` (`id`, `code`, `description`) VALUES
 	(29, '140000', 'Энергетика, энергетическое машиностроение и электротехника');
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 
--- Дамп данных таблицы grid.index: ~0 rows (приблизительно)
+
+-- Дамп структуры для таблица grid.index
+CREATE TABLE IF NOT EXISTS `index` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `city_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы grid.index: ~70 rows (приблизительно)
 /*!40000 ALTER TABLE `index` DISABLE KEYS */;
 INSERT IGNORE INTO `index` (`id`, `user_id`, `city_id`) VALUES
 	(1, 58, 392),
@@ -1248,6 +1281,18 @@ INSERT IGNORE INTO `index` (`id`, `user_id`, `city_id`) VALUES
 	(69, 66, 880),
 	(70, 2, 395);
 /*!40000 ALTER TABLE `index` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица grid.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) NOT NULL DEFAULT '0',
+  `lastname` varchar(50) NOT NULL DEFAULT '0',
+  `middlename` varchar(50) NOT NULL DEFAULT '0',
+  `birthday` date NOT NULL DEFAULT '0000-00-00',
+  `education` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы grid.users: 200 rows
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
